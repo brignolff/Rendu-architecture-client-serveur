@@ -54,12 +54,6 @@ namespace ORM
                 entity.Property(e => e.Genre).HasMaxLength(50);
 
                 entity.Property(e => e.Titre).HasMaxLength(50);
-
-                entity.HasOne(d => d.IdAuteurNavigation)
-                    .WithMany(p => p.Livres)
-                    .HasForeignKey(d => d.IdAuteur)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("Livre_Auteur_FK");
             });
 
             OnModelCreatingPartial(modelBuilder);
